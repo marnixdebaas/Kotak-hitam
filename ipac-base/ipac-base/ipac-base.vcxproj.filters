@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="include">
+      <UniqueIdentifier>{53d3dd55-6a8c-4b0d-903f-04ec906499df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{d1d5ff4b-31d2-4ce9-99c0-bc5d3e873d73}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\display.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\fat.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\fatdrv.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\flash.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\keyboard.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\led.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\log.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mmc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\mmcdrv.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\platform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\portio.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\remcon.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\rtc.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\spidrv.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\system.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\typedefs.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\uart0driver.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vs10xx.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\watchdog.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\display.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\fat.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\flash.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\http.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\inet.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\keyboard.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\led.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\log.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\mmc.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\mmcdrv.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\remcon.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rtc.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\session.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\spidrv.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\uart0driver.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\util.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\vs10xx.c">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\watchdog.c">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

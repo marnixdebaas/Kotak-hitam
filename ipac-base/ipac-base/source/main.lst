@@ -1,0 +1,310 @@
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 1
+
+
+   1               		.file	"main.c"
+   2               		.arch atmega2561
+   3               	__SREG__ = 0x3f
+   4               	__SP_H__ = 0x3e
+   5               	__SP_L__ = 0x3d
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.global __do_copy_data
+   9               		.global __do_clear_bss
+  10               		.text
+  11               	.global	SysInitIO
+  12               		.type	SysInitIO, @function
+  13               	SysInitIO:
+  14               	/* prologue: frame size=0 */
+  15               	/* prologue end (size=0) */
+  16 0000 87EF      		ldi r24,lo8(-9)
+  17 0002 84B9      		out 36-0x20,r24
+  18 0004 8CE0      		ldi r24,lo8(12)
+  19 0006 8AB9      		out 42-0x20,r24
+  20 0008 8BB1      		in r24,43-0x20
+  21 000a 8C70      		andi r24,lo8(12)
+  22 000c 836F      		ori r24,lo8(-13)
+  23 000e 8BB9      		out 43-0x20,r24
+  24 0010 8EE8      		ldi r24,lo8(-114)
+  25 0012 8DB9      		out 45-0x20,r24
+  26 0014 8EB1      		in r24,46-0x20
+  27 0016 8E78      		andi r24,lo8(-114)
+  28 0018 8160      		ori r24,lo8(1)
+  29 001a 8EB9      		out 46-0x20,r24
+  30 001c 85B7      		in r24,85-0x20
+  31 001e 8068      		ori r24,lo8(-128)
+  32 0020 85BF      		out 85-0x20,r24
+  33 0022 85B7      		in r24,85-0x20
+  34 0024 8068      		ori r24,lo8(-128)
+  35 0026 85BF      		out 85-0x20,r24
+  36 0028 8EE0      		ldi r24,lo8(14)
+  37 002a 80BB      		out 48-0x20,r24
+  38 002c 81B3      		in r24,49-0x20
+  39 002e 8E70      		andi r24,lo8(14)
+  40 0030 816F      		ori r24,lo8(-15)
+  41 0032 81BB      		out 49-0x20,r24
+  42 0034 88E1      		ldi r24,lo8(24)
+  43 0036 83BB      		out 51-0x20,r24
+  44               	/* epilogue: frame size=0 */
+  45 0038 0895      		ret
+  46               	/* epilogue end (size=1) */
+  47               	/* function SysInitIO size 29 (28) */
+  48               		.size	SysInitIO, .-SysInitIO
+  49               	.global	NutAppMain
+  50               		.type	NutAppMain, @function
+  51               	NutAppMain:
+  52               	/* prologue: frame size=23 */
+  53 003a 0F93      		push r16
+  54 003c 1F93      		push r17
+  55 003e CF93      		push r28
+  56 0040 DF93      		push r29
+  57 0042 CDB7      		in r28,__SP_L__
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 2
+
+
+  58 0044 DEB7      		in r29,__SP_H__
+  59 0046 6797      		sbiw r28,23
+  60 0048 0FB6      		in __tmp_reg__,__SREG__
+  61 004a F894      		cli
+  62 004c DEBF      		out __SP_H__,r29
+  63 004e 0FBE      		out __SREG__,__tmp_reg__
+  64 0050 CDBF      		out __SP_L__,r28
+  65               	/* prologue end (size=12) */
+  66 0052 84E4      		ldi r24,lo8(68)
+  67 0054 8983      		std Y+1,r24
+  68 0056 89E4      		ldi r24,lo8(73)
+  69 0058 8A83      		std Y+2,r24
+  70 005a 83E4      		ldi r24,lo8(67)
+  71 005c 8B83      		std Y+3,r24
+  72 005e 8BE4      		ldi r24,lo8(75)
+  73 0060 8C83      		std Y+4,r24
+  74 0062 83E5      		ldi r24,lo8(83)
+  75 0064 8D83      		std Y+5,r24
+  76 0066 0E94 0000 		call WatchDogDisable
+  77 006a 84E6      		ldi r24,lo8(100)
+  78 006c 0E94 0000 		call NutDelay
+  79 0070 0E94 0000 		call SysInitIO
+  80 0074 0E94 0000 		call SPIinit
+  81 0078 0E94 0000 		call LedInit
+  82 007c 0E94 0000 		call LcdLowLevelInit
+  83 0080 0E94 0000 		call Uart0DriverInit
+  84 0084 0E94 0000 		call Uart0DriverStart
+  85 0088 0E94 0000 		call LogInit
+  86 008c 80E0      		ldi r24,lo8(__c.2554)
+  87 008e 90E0      		ldi r25,hi8(__c.2554)
+  88 0090 9F93      		push r25
+  89 0092 8F93      		push r24
+  90 0094 16EC      		ldi r17,lo8(-58)
+  91 0096 1F93      		push r17
+  92 0098 0E94 0000 		call LogMsg_P
+  93 009c 0E94 0000 		call CardInit
+  94 00a0 0E94 0000 		call X12Init
+  95 00a4 CE01      		movw r24,r28
+  96 00a6 0696      		adiw r24,6
+  97 00a8 0E94 0000 		call X12RtcGetClock
+  98 00ac 0F90      		pop __tmp_reg__
+  99 00ae 0F90      		pop __tmp_reg__
+ 100 00b0 0F90      	 	pop __tmp_reg__
+ 101 00b2 892B      		or r24,r25
+ 102 00b4 01F4      		brne .L4
+ 103 00b6 8E81      		ldd r24,Y+6
+ 104 00b8 9F81      		ldd r25,Y+7
+ 105 00ba 9F93      		push r25
+ 106 00bc 8F93      		push r24
+ 107 00be 8885      		ldd r24,Y+8
+ 108 00c0 9985      		ldd r25,Y+9
+ 109 00c2 9F93      		push r25
+ 110 00c4 8F93      		push r24
+ 111 00c6 8A85      		ldd r24,Y+10
+ 112 00c8 9B85      		ldd r25,Y+11
+ 113 00ca 9F93      		push r25
+ 114 00cc 8F93      		push r24
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 3
+
+
+ 115 00ce 80E0      		ldi r24,lo8(__c.2556)
+ 116 00d0 90E0      		ldi r25,hi8(__c.2556)
+ 117 00d2 9F93      		push r25
+ 118 00d4 8F93      		push r24
+ 119 00d6 1F93      		push r17
+ 120 00d8 0E94 0000 		call LogMsg_P
+ 121 00dc 8DB7      		in r24,__SP_L__
+ 122 00de 9EB7      		in r25,__SP_H__
+ 123 00e0 0996      		adiw r24,9
+ 124 00e2 0FB6      		in __tmp_reg__,__SREG__
+ 125 00e4 F894      		cli
+ 126 00e6 9EBF      		out __SP_H__,r25
+ 127 00e8 0FBE      		out __SREG__,__tmp_reg__
+ 128 00ea 8DBF      		out __SP_L__,r24
+ 129               	.L4:
+ 130 00ec 0E94 0000 		call At45dbInit
+ 131 00f0 0E94 0000 		call RcInit
+ 132 00f4 0E94 0000 		call KbInit
+ 133 00f8 40E0      		ldi r20,lo8(0)
+ 134 00fa 50E0      		ldi r21,hi8(0)
+ 135 00fc 60E0      		ldi r22,lo8(gs(SysMainBeatInterrupt))
+ 136 00fe 70E0      		ldi r23,hi8(gs(SysMainBeatInterrupt))
+ 137 0100 80E0      		ldi r24,lo8(sig_OVERFLOW0)
+ 138 0102 90E0      		ldi r25,hi8(sig_OVERFLOW0)
+ 139 0104 0E94 0000 		call NutRegisterIrqHandler
+ 140 0108 892B      		or r24,r25
+ 141 010a 01F4      		brne .L6
+ 142 010c 85B5      		in r24,69-0x20
+ 143 010e 8460      		ori r24,lo8(4)
+ 144 0110 85BD      		out 69-0x20,r24
+ 145 0112 A89A      		sbi 53-0x20,0
+ 146 0114 8091 6E00 		lds r24,110
+ 147 0118 8160      		ori r24,lo8(1)
+ 148 011a 8093 6E00 		sts 110,r24
+ 149               	.L6:
+ 150 011e 81E0      		ldi r24,lo8(1)
+ 151 0120 0E94 0000 		call NutThreadSetPriority
+ 152               	/* #APP */
+ 153 0124 7894      		sei
+ 154               	/* #NOAPP */
+ 155 0126 64E6      		ldi r22,lo8(100)
+ 156 0128 70E0      		ldi r23,hi8(100)
+ 157 012a 80E0      		ldi r24,hlo8(100)
+ 158 012c 90E0      		ldi r25,hhi8(100)
+ 159 012e 0E94 0000 		call NutSleep
+ 160 0132 01E0      		ldi r16,lo8(1)
+ 161 0134 10E0      		ldi r17,hi8(1)
+ 162               	.L8:
+ 163 0136 1F93      		push r17
+ 164 0138 0F93      		push r16
+ 165 013a 80E0      		ldi r24,lo8(__c.2558)
+ 166 013c 90E0      		ldi r25,hi8(__c.2558)
+ 167 013e 9F93      		push r25
+ 168 0140 8F93      		push r24
+ 169 0142 86EC      		ldi r24,lo8(-58)
+ 170 0144 8F93      		push r24
+ 171 0146 0E94 0000 		call LogMsg_P
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 4
+
+
+ 172 014a 84E0      		ldi r24,lo8(4)
+ 173 014c 0E94 0000 		call LedControl
+ 174 0150 0E94 0000 		call KbGetKey
+ 175 0154 0F90      		pop __tmp_reg__
+ 176 0156 0F90      		pop __tmp_reg__
+ 177 0158 0F90      		pop __tmp_reg__
+ 178 015a 0F90      		pop __tmp_reg__
+ 179 015c 0F90      		pop __tmp_reg__
+ 180 015e 8D30      		cpi r24,lo8(13)
+ 181 0160 01F4      		brne .L9
+ 182 0162 65E0      		ldi r22,lo8(5)
+ 183 0164 70E0      		ldi r23,hi8(5)
+ 184 0166 CE01      		movw r24,r28
+ 185 0168 0196      		adiw r24,1
+ 186 016a 0E94 0000 		call LcdMChar
+ 187 016e 81E0      		ldi r24,lo8(1)
+ 188 0170 00C0      		rjmp .L15
+ 189               	.L9:
+ 190 0172 80E0      		ldi r24,lo8(0)
+ 191               	.L15:
+ 192 0174 0E94 0000 		call LcdBackLight
+ 193               	.L14:
+ 194 0178 0E94 0000 		call WatchDogRestart
+ 195 017c 64E6      		ldi r22,lo8(100)
+ 196 017e 70E0      		ldi r23,hi8(100)
+ 197 0180 80E0      		ldi r24,hlo8(100)
+ 198 0182 90E0      		ldi r25,hhi8(100)
+ 199 0184 0E94 0000 		call NutSleep
+ 200 0188 C801      		movw r24,r16
+ 201 018a 65E0      		ldi r22,lo8(5)
+ 202 018c 70E0      		ldi r23,hi8(5)
+ 203 018e 0E94 0000 		call __divmodhi4
+ 204 0192 0F5F      		subi r16,lo8(-(1))
+ 205 0194 1F4F      		sbci r17,hi8(-(1))
+ 206 0196 892B      		or r24,r25
+ 207 0198 01F4      		brne .L14
+ 208 019a 00C0      		rjmp .L8
+ 209               	/* epilogue: frame size=23 */
+ 210               	/* epilogue: noreturn */
+ 211               	/* epilogue end (size=0) */
+ 212               	/* function NutAppMain size 178 (166) */
+ 213               		.size	NutAppMain, .-NutAppMain
+ 214               		.type	SysMainBeatInterrupt, @function
+ 215               	SysMainBeatInterrupt:
+ 216               	/* prologue: frame size=0 */
+ 217               	/* prologue end (size=0) */
+ 218 019c 0E94 0000 		call KbScan
+ 219 01a0 0E94 0000 		call CardCheckCard
+ 220               	/* epilogue: frame size=0 */
+ 221 01a4 0895      		ret
+ 222               	/* epilogue end (size=1) */
+ 223               	/* function SysMainBeatInterrupt size 5 (4) */
+ 224               		.size	SysMainBeatInterrupt, .-SysMainBeatInterrupt
+ 225               		.section	.progmem.data,"a",@progbits
+ 226               		.type	__c.2558, @object
+ 227               		.size	__c.2558, 25
+ 228               	__c.2558:
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 5
+
+
+ 229 0000 5965 7321 		.string	"Yes!, I'm alive ... [%d]"
+ 229      2C20 4927 
+ 229      6D20 616C 
+ 229      6976 6520 
+ 229      2E2E 2E20 
+ 230               		.type	__c.2556, @object
+ 231               		.size	__c.2556, 26
+ 232               	__c.2556:
+ 233 0019 5254 4320 		.string	"RTC time [%02d:%02d:%02d]"
+ 233      7469 6D65 
+ 233      205B 2530 
+ 233      3264 3A25 
+ 233      3032 643A 
+ 234               		.type	__c.2554, @object
+ 235               		.size	__c.2554, 12
+ 236               	__c.2554:
+ 237 0033 4865 6C6C 		.string	"Hello World"
+ 237      6F20 576F 
+ 237      726C 6400 
+ 238               	/* File "source/main.c": code  212 = 0x00d4 ( 198), prologues  12, epilogues   2 */
+GAS LISTING C:\Users\marnix\AppData\Local\Temp/cc63xffg.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:3      *ABS*:0000003f __SREG__
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:4      *ABS*:0000003e __SP_H__
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:5      *ABS*:0000003d __SP_L__
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:13     .text:00000000 SysInitIO
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:51     .text:0000003a NutAppMain
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:236    .progmem.data:00000033 __c.2554
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:232    .progmem.data:00000019 __c.2556
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:215    .text:0000019c SysMainBeatInterrupt
+C:\Users\marnix\AppData\Local\Temp/cc63xffg.s:228    .progmem.data:00000000 __c.2558
+
+UNDEFINED SYMBOLS
+__do_copy_data
+__do_clear_bss
+WatchDogDisable
+NutDelay
+SPIinit
+LedInit
+LcdLowLevelInit
+Uart0DriverInit
+Uart0DriverStart
+LogInit
+LogMsg_P
+CardInit
+X12Init
+X12RtcGetClock
+At45dbInit
+RcInit
+KbInit
+sig_OVERFLOW0
+NutRegisterIrqHandler
+NutThreadSetPriority
+NutSleep
+LedControl
+KbGetKey
+LcdMChar
+LcdBackLight
+WatchDogRestart
+__divmodhi4
+KbScan
+CardCheckCard
